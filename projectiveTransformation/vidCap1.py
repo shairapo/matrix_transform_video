@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 counter=0
 posList=[]
 
+#a comment for github!
+
 def on_click_originial(event, x, y, p1, p2):
     global counter
     if event == cv2.EVENT_LBUTTONDOWN:
