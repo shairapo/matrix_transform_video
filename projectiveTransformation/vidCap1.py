@@ -1,13 +1,10 @@
 import cv2
 import numpy as np
-import matplotlib.pyplot as plt
-
+# import matplotlib.pyplot as plt
 counter=0
 posList=[]
 
-#a comment for github!
-
-def on_click_originial(event, x, y, p1, p2):
+def on_click_original(event, x, y, p1, p2):
     global counter
     if event == cv2.EVENT_LBUTTONDOWN:
         counter=counter+1
@@ -23,7 +20,6 @@ def printcoor():
 
 
 def transformOutput(frame):
-    cap.release()
     rows, cols = frame.shape[:2]
 
     pts1=np.float32([[posList[0],posList[1],posList[2],posList[3]]]) 
@@ -32,13 +28,12 @@ def transformOutput(frame):
 
     # Put in perspective
     result=cv2.warpPerspective(frame,matrix,(cols,rows))
+    
+    cv2.imshow('Result',result)
+    # plt.imshow(result)
+    # plt.title('Distorced')
+    # plt.show()
 
-    plt.imshow(result)
-    plt.title('Distorced')
-    plt.show()
-
-# Create a VideoCapture object and read from input file
-# If the input is the camera, pass 0 instead of the video file name
 cap = cv2.VideoCapture(0)
  
 # Check if camera opened successfully
@@ -54,7 +49,7 @@ while(cap.isOpened()):
     # Display the resulting frame
     cv2.imshow('Frame',frame)
     
-    cv2.setMouseCallback('Frame', on_click_originial)
+    cv2.setMouseCallback('Frame', on_click_original)
 
     if(counter==4):
        transformOutput(frame)
