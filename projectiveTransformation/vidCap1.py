@@ -73,3 +73,21 @@ cap.release()
 # Closes all the frames
 cv2.destroyAllWindows()
 
+
+# # point transformation function call
+# calMatchCoor(matrix,result)
+
+# # transform the point
+# def calMatchCoor(matrix,result):
+#     px = (matrix[0][0]*p[0] + matrix[0][1]*p[1] + matrix[0][2]) / ((matrix[2][0]*p[0] + matrix[2][1]*p[1] + matrix[2][2]))
+#     py = (matrix[1][0]*p[0] + matrix[1][1]*p[1] + matrix[1][2]) / ((matrix[2][0]*p[0] + matrix[2][1]*p[1] + matrix[2][2]))
+#     p_after = (int(px), int(py))
+
+#     # Draw the new point
+#     cv2.circle(result,p_after, 30, (0,255,0), 20)
+
+#     # Show the result
+#     plt.imshow(result)
+#     plt.title('Predicted position of your point in blue')
+#     plt.show()
+
